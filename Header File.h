@@ -2,11 +2,13 @@
 // Created by Mushtariy Zokirova on 04/11/24.
 //
 int floorFunction(double num) {
-    return num >= 0 ? (int)num : (int)(num - 0.5);
+    int floor = (int)num;
+    return num < floor ? floor - 1 : floor;
 }
 
 int ceilingFunction(double num) {
-    return num <= 0 ? (int)num : (int)(num + 0.5);
+    int ceil = (int)(num + 1);
+    return num > ceil - 1 ? ceil : ceil - 1;
 }
 
 void swapValues(double &a, double &b) {
