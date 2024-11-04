@@ -1,14 +1,13 @@
 //
 // Created by Mushtariy Zokirova on 04/11/24.
 //
-int floor_value(double num) {
-    return (int)(num - 0.5);
+int floorFunction(double num) {
+    return num >= 0 ? (int)num : (int)(num - 0.5);
 }
 
-int ceiling_value(double num) {
-    return (int)(num + 0.5);
+int ceilingFunction(double num) {
+    return num <= 0 ? (int)num : (int)(num + 0.5);
 }
-
 
 void swapValues(double &a, double &b) {
     a = a + b;
@@ -36,17 +35,12 @@ int sumOfDigits(int n) {
 }
 
 
-
-void decimalToBinary(int n) {
+int decimalToBinary(int n) {
     if (n == 0) {
-        return;
+        return 0;
     }
-    decimalToBinary(n/2);
-    cout << n%2;
+    return (n % 2) + 10 * decimalToBinary(n / 2);
 }
-
-
-
 
 template <typename T>
 T midValue(T a, T b, T c) {
