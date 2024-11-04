@@ -13,7 +13,7 @@ int ceilingFunction(double number) {
 }
 }
 
-void swapValues(double &a, double &b) {
+void swap_values(double &a, double &b) {
     a = a + b;
     b = a - b;
     a = a - b;
@@ -27,7 +27,7 @@ int multiply(int digit1, int digit2) {
     }
     return digit1 + multiply(digit1, digit2 - 1);
 }
-int sumOfDigits(int constant) {
+int digitSum(int constant) {
     if (constant == 0) {
         return 0;
     }
