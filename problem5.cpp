@@ -1,44 +1,32 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 using namespace std;
 
 int main() {
     string s;
-    getline(cin, s);  // Read the input string
+    getline(cin, s);
 
-    int uppercaseCount = 0;
-    int lowercaseCount = 0;
+    int uppercaseCount = 0, lowercaseCount = 0;
+    string uppercaseChars = "", lowercaseChars = "";
 
-    string uppercaseChars = "";
-    string lowercaseChars = "";
-
-    // Iterate over each character in the string
     for (char c : s) {
         if (isupper(c)) {
             uppercaseCount++;
             uppercaseChars += c;
+            uppercaseChars += " ";
         } else if (islower(c)) {
             lowercaseCount++;
             lowercaseChars += c;
+            lowercaseChars += " ";
         }
     }
 
-    // Output uppercase count and characters
-    cout << uppercaseCount;
-    if (uppercaseCount > 0) {
-        cout << " " << uppercaseChars << endl;
-    } else {
-        cout << endl;
-    }
+    // Remove trailing space from strings
+    if (!uppercaseChars.empty()) uppercaseChars.pop_back();
+    if (!lowercaseChars.empty()) lowercaseChars.pop_back();
 
-    // Output lowercase count and characters
-    cout << lowercaseCount;
-    if (lowercaseCount > 0) {
-        cout << " " << lowercaseChars << endl;
-    } else {
-        cout << endl;
-    }
+    cout << uppercaseCount << " " << uppercaseChars << endl;
+    cout << lowercaseCount << " " << lowercaseChars << endl;
 
     return 0;
 }
