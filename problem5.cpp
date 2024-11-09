@@ -21,7 +21,7 @@ int main() {
         }
     }
 
-    // Remove trailing space from strings
+    
     if (!uppercaseChars.empty()) uppercaseChars.pop_back();
     if (!lowercaseChars.empty()) lowercaseChars.pop_back();
 
