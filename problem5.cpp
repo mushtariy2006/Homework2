@@ -30,8 +30,8 @@ int main() {
     if (lowercaseIndex > 0) lowercaseChars[lowercaseIndex - 1] = '\0';  // Remove last space for lowercase
 
     // Print results
-    cout << uppercaseCount << " " << uppercaseChars << endl;
-    cout << lowercaseCount << " " << lowercaseChars << endl;
+    cout<<uppercaseCount<<" "<< uppercaseChars<<endl;
+    cout<<lowercaseCoun<<" "<<lowercaseChars<<endl;
 
     return 0;
 }
