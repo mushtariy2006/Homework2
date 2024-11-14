@@ -1,36 +1,63 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
-int find_common_divisor(const vector<int>& arr) {
-    int smallest = arr[0];
-    for (int num : arr) {
-        if (num < smallest) {
-            smallest = num;
+bool isAverageMatrix(const vector<vector<int>>& matrix, int m, int n) {
+    // Calculate row averages
+    double rowAverage = 0.0;
+    for (int i = 0; i < m; i++) {
+        double sum = 0;
+        for (int j = 0; j < n; j++) {
+            sum += matrix[i][j];
+        }
+        double currentRowAverage = sum / n;
+        if (i == 0) {
+            rowAverage = currentRowAverage;
+        } else if (currentRowAverage != rowAverage) {
+            return false;
         }
     }
 
-    for (int num : arr) {
-        if (num % smallest != 0) {
-            return -1;
+    // Calculate column averages
+    double colAverage = 0.0;
+    for (int j = 0; j < n; j++) {
+        double sum = 0;
+        for (int i = 0; i < m; i++) {
+            sum += matrix[i][j];
+        }
+        double currentColAverage = sum / m;
+        if (j == 0) {
+            colAverage = currentColAverage;
+        } else if (currentColAverage != colAverage) {
+            return false;
         }
     }
 
-    return smallest;
+    // Check if both row and column averages are equal
+    return (rowAverage == colAverage);
 }
 
 int main() {
-    int n;
+    int m, n;
+    cout << "m=";
+    cin >> m;
+    cout << "n=";
     cin >> n;
 
-    vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
+    vector<vector<int>> matrix(m, vector<int>(n));
+
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> matrix[i][j];
+        }
     }
 
-    int result = find_common_divisor(arr);
-    cout << result << endl;
+    if (isAverageMatrix(matrix, m, n)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 
     return 0;
 }
