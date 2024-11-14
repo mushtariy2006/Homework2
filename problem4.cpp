@@ -1,36 +1,38 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
-int maxProfit(const vector<int>& prices) {
-    int n = prices.size();
-    if (n == 0) {
-        return 0;
-    }
-
-    int min_price = prices[0];
-    int max_profit = 0;
-
-    for (int i = 1; i < n; i++) {
-        min_price = min(min_price, prices[i]);
-        max_profit = max(max_profit, prices[i] - min_price);
-    }
-
-    return max_profit;
-}
-
 int main() {
+    vector<int> parkingRow;
     int n;
-    cin >> n;
+    cout<<"n=";
+    cin>>n;
+    char input;
 
-    vector<int> prices(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> prices[i];
+    while (cin >> input) {
+        if (input == '0' || input == '1') {
+            parkingRow.push_back(input - '0');
+        } else {
+            break;
+        }
     }
 
-    int result = maxProfit(prices);
-    cout << result << endl;
+    int count = 0;
+    for (int i = 0; i < parkingRow.size(); i++) {
+        if (parkingRow[i] == 0) {
+            if ((i == 0 || parkingRow[i-1] == 0) && (i == parkingRow.size()-1 || parkingRow[i+1] == 0)) {
+                parkingRow[i] = 1;
+                count++;
+            }
+        }
+        if (count == n) break;
+    }
+
+    if (count == n) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 
     return 0;
 }
