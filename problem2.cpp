@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     int m, n;
-    
+
     // Input dimensions of the matrix
     cout << "Enter dimensions m and n: ";
     cin >> m >> n;
@@ -21,30 +21,37 @@ int main() {
         }
     }
 
-    // Calculate the sum of rows and columns
-    double rowSum = 0.0;
-    double colSum = 0.0;
+    // Calculate row averages and column sums
+    double totalRowAverage = 0.0;
+    double totalColAverage = 0.0;
 
-    // Sum row averages
+    // Calculate the sum of all elements for rows and columns
+    int rowSum, colSum;
+
+    // Sum of all rows
     for (int i = 0; i < m; ++i) {
-        double sum = 0.0;
+        rowSum = 0;
         for (int j = 0; j < n; ++j) {
-            sum += matrix[i][j];
+            rowSum += matrix[i][j];
         }
-        rowSum += (sum / n);
+        totalRowAverage += rowSum; // Add row sum to total row average
     }
 
-    // Sum column averages
+    // Sum of all columns
     for (int j = 0; j < n; ++j) {
-        double sum = 0.0;
+        colSum = 0;
         for (int i = 0; i < m; ++i) {
-            sum += matrix[i][j];
+            colSum += matrix[i][j];
         }
-        colSum += (sum / m);
+        totalColAverage += colSum; // Add column sum to total column average
     }
+
+    // Calculate actual averages
+    totalRowAverage /= m; // Average of row sums
+    totalColAverage /= n; // Average of column sums
 
     // Compare the averages
-    if (rowSum == colSum) {
+    if (totalRowAverage == totalColAverage) {
         cout << "Output: YES" << endl;
     } else {
         cout << "Output: NO" << endl;
