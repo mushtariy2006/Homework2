@@ -3,43 +3,17 @@
 
 using namespace std;
 
-bool isAverageMatrix(const vector<vector<int>>& matrix, int m, int n) {
-    double rowSum, colSum;
-    double rowAverage = 0.0, colAverage = 0.0;
-
-    // Calculate row averages
-    for (int i = 0; i < m; ++i) {
-        rowSum = 0;
-        for (int j = 0; j < n; ++j) {
-            rowSum += matrix[i][j];
-        }
-        rowAverage += (rowSum / n);
-    }
-    rowAverage /= m; // Average of all row averages
-
-    // Calculate column averages
-    for (int j = 0; j < n; ++j) {
-        colSum = 0;
-        for (int i = 0; i < m; ++i) {
-            colSum += matrix[i][j];
-        }
-        colAverage += (colSum / m);
-    }
-    colAverage /= n; // Average of all column averages
-
-    // Compare the overall row average and column average
-    return rowAverage == colAverage;
-}
-
 int main() {
     int m, n;
-
-    // Read matrix dimensions
+    
+    // Input dimensions of the matrix
     cout << "Enter dimensions m and n: ";
     cin >> m >> n;
 
-    // Input matrix
+    // Initialize the matrix
     vector<vector<int>> matrix(m, vector<int>(n));
+
+    // Input the matrix elements
     cout << "Enter the matrix elements:" << endl;
     for (int i = 0; i < m; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -47,26 +21,33 @@ int main() {
         }
     }
 
-    // Check if it's an average matrix
-    if (isAverageMatrix(matrix, m, n)) {
+    // Calculate the sum of rows and columns
+    double rowSum = 0.0;
+    double colSum = 0.0;
+
+    // Sum row averages
+    for (int i = 0; i < m; ++i) {
+        double sum = 0.0;
+        for (int j = 0; j < n; ++j) {
+            sum += matrix[i][j];
+        }
+        rowSum += (sum / n);
+    }
+
+    // Sum column averages
+    for (int j = 0; j < n; ++j) {
+        double sum = 0.0;
+        for (int i = 0; i < m; ++i) {
+            sum += matrix[i][j];
+        }
+        colSum += (sum / m);
+    }
+
+    // Compare the averages
+    if (rowSum == colSum) {
         cout << "Output: YES" << endl;
     } else {
         cout << "Output: NO" << endl;
-    }
-
-    return 0;
-}
-
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            cin >> matrix[i][j];
-        }
-    }
-
-    if (isAverageMatrix(matrix, m, n)) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
     }
 
     return 0;
