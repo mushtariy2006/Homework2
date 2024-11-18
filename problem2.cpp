@@ -1,60 +1,48 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int main() {
     int m, n;
-
-    // Input dimensions of the matrix
-    cout << "Enter dimensions m and n: ";
     cin >> m >> n;
 
-    // Initialize the matrix
     vector<vector<int>> matrix(m, vector<int>(n));
 
     // Input the matrix elements
-    cout << "Enter the matrix elements:" << endl;
-    for (int i = 0; i < m; ++i) {
-        for (int j = 0; j < n; ++j) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
             cin >> matrix[i][j];
         }
     }
 
-    // Calculate row averages and column sums
-    double totalRowAverage = 0.0;
-    double totalColAverage = 0.0;
-
-    // Calculate the sum of all elements for rows and columns
-    int rowSum, colSum;
-
-    // Sum of all rows
-    for (int i = 0; i < m; ++i) {
-        rowSum = 0;
-        for (int j = 0; j < n; ++j) {
-            rowSum += matrix[i][j];
+    // Calculate row averages
+    double row_avg = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            row_avg += matrix[i][j];
         }
-        totalRowAverage += rowSum; // Add row sum to total row average
+    }
+    row_avg /= (m * n);
+
+    // Check if all columns also have the same average as rows
+    bool is_average_matrix = true;
+    for (int j = 0; j < n; j++) {
+        double col_avg = 0;
+        for (int i = 0; i < m; i++) {
+            col_avg += matrix[i][j];
+        }
+        col_avg /= m;
+
+        if (col_avg != row_avg) {
+            is_average_matrix = false;
+            break;
+        }
     }
 
-    // Sum of all columns
-    for (int j = 0; j < n; ++j) {
-        colSum = 0;
-        for (int i = 0; i < m; ++i) {
-            colSum += matrix[i][j];
-        }
-        totalColAverage += colSum; // Add column sum to total column average
-    }
-
-    // Calculate actual averages
-    totalRowAverage /= m; // Average of row sums
-    totalColAverage /= n; // Average of column sums
-
-    // Compare the averages
-    if (totalRowAverage == totalColAverage) {
-        cout << "Output: YES" << endl;
+    if (is_average_matrix) {
+        cout << "YES" << endl;
     } else {
-        cout << "Output: NO" << endl;
+        cout << "NO" << endl;
     }
 
     return 0;
