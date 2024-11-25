@@ -31,45 +31,57 @@ int minsNewYear(int *hour, int *min) {
     return totalMinutesInDay - minutesPassed;
 }
 //problem4
+#include <algorithm>  // for max function
+using namespace std;
+
 double probability(int *A, int *B) {
-    int aliRoll = *A; // Ali's roll
-    int bekRoll = *B; // Bek's roll
+    // Find the maximum value between Ali's and Bek's rolls
+    int maxRoll = max(*A, *B);
+    
+    // Count how many possible outcomes for Dilya's roll will result in her win
+    int favorableOutcomes = 6 - maxRoll + 1;
+    
+    // If favorableOutcomes is negative, set it to 0 (can't have negative favorable outcomes)
+    if (favorableOutcomes < 0) {
+        favorableOutcomes = 0;
+    }
+    
+    // The total number of outcomes for Dilya is 6 (since it's a six-sided die)
+    double totalOutcomes = 6.0;
+    
+    // Return the probability of Dilya winning
+    return favorableOutcomes / totalOutcomes;
+}
 
-    // Count the number of winning rolls for Dilya
-    int winningRolls = 0;
+int presses(int *x) {
+    // Convert x to string to extract digit and length
+    int n = *x;
+    int digit = n % 10;  // Last digit (since x is a "special" number, it's the repeated digit)
+    int length = 0;
+    
+    // Find the length of the number (count how many times the digit repeats)
+    int temp = n;
+    while (temp > 0) {
+        length++;
+        temp /= 10;
+    }
+    
+    int totalKeypresses = 0;
 
-    // Dilya can roll from 1 to 6
-    for (int dilyaRoll = 1; dilyaRoll <= 6; ++dilyaRoll) {
-        // Dilya wins if her roll is greater than either Ali's or Bek's,
-        // or if Dilya ties with either Ali or Bek
-        if (dilyaRoll >= aliRoll || dilyaRoll >= bekRoll) {
-            winningRolls++;
+    // Calculate keypresses for all digits from 1 to digit-1
+    for (int d = 1; d < digit; ++d) {
+        for (int len = 1; len <= 4; ++len) {
+            totalKeypresses += len;  // Each "d...d" requires len keypresses
         }
     }
 
-    // Probability is the number of winning rolls divided by the total possible rolls (6)
-    return static_cast<double>(winningRolls) / 6.0;
-}
-int presses(int *x) {
-    int apartmentNumber = *x; // Get the apartment number
-    int digit = apartmentNumber % 10; // Extract the digit (since x consists of identical digits)
-    int length = 0; // Length of the apartment number
-    int totalKeypresses = 0; // Total keypresses
-
-    // Calculate the length of the apartment number
-    while (apartmentNumber > 0) {
-        apartmentNumber /= 10;
-        length++;
+    // Calculate keypresses for the current digit
+    for (int len = 1; len < length; ++len) {
+        totalKeypresses += len;  // For numbers like 2, 22, 222, ... before 2222
     }
 
-    // Count the keypresses for previous digits
-    for (int i = 1; i < digit; ++i) {
-        // For each digit from 1 to (digit - 1), we call 1, 11, 111, 1111
-        totalKeypresses += (i * 4); // 1 + 2 + 3 + 4 = 10 key presses for each digit
-    }
-
-    // Count the keypresses for the current digit
-    totalKeypresses += (length * digit); // For digit 'digit', adds keypresses for 1, 11, ..., and the current number
-
+    // Finally add keypresses for the apartment x itself
+    totalKeypresses += length;  // For the apartment `x` itself
+    
     return totalKeypresses;
 }
