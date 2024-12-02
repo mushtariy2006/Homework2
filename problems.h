@@ -1,87 +1,101 @@
 #ifndef PROBLEMS_H
 #define PROBLEMS_H
 
-// Function to convert days to years
-void days2years(int &days, int &years) {
-    years = days / 365; // Calculate the number of complete years
-    days = days % 365;  // Update days to the remaining days
+#include <vector>
+
+void delete11(std::vector<int> &v) {
+    // Use the erase-remove idiom to remove elements divisible by 11
+    v.erase(std::remove_if(v.begin(), v.end(), [](int x) { return x % 11 == 0; }), v.end());
 }
 
 #endif // PROBLEMS_H
 //problem2
-#include <cmath>  // For power function (pow)
+int* allocateAndSet(int a, int b) {
+    // Check if a is greater than b
+    if (a > b) {
+        return nullptr; // Return NULL if invalid range
+    }
 
-// Function to calculate y = (11 * x^3) / 3 + 5
-// Takes pointers to double values x and y
-double func(double *x, double *y) {
-    // Calculate the value of y based on the equation
-    *y = (11 * pow(*x, 3)) / 3 + 5;
-    return *y;
+    // Calculate the size of the array
+    int size = b - a + 1;
+
+    // Allocate memory for the array
+    int* arr = new int[size];
+
+    // Assign values from a to b
+    for (int i = 0; i < size; ++i) {
+        arr[i] = a + i;
+    }
+
+    return arr; // Return pointer to the allocated array
 }
+
+void deallocate(int*& arr) {
+    // Check if the pointer is not null
+    if (arr != nullptr) {
+        delete[] arr; // Deallocate the memory
+        arr = nullptr; // Set the pointer to nullptr
+    }
+}
+
 //problem3
-// Function to calculate the number of minutes before New Year
-int minsNewYear(int *hour, int *min) {
-    // Total minutes in a day is 1440 (24 * 60)
-    int totalMinutesInDay = 1440;
+int* allocateAndSet(int a, int b) {
+    // Check if a is greater than b
+    if (a > b) {
+        return nullptr; // Return NULL if invalid range
+    }
 
-    // Calculate the minutes passed so far since midnight
-    int minutesPassed = (*hour) * 60 + (*min);
+    // Calculate the size of the array
+    int size = b - a + 1;
 
-    // Calculate the remaining minutes before the New Year
-    return totalMinutesInDay - minutesPassed;
+    // Allocate memory for the array
+    int* arr = new int[size];
+
+    // Assign values from a to b
+    for (int i = 0; i < size; ++i) {
+        arr[i] = a + i;
+    }
+
+    return arr; // Return pointer to the allocated array
 }
+
+void deallocate(int*& arr) {
+    // Check if the pointer is not null
+    if (arr != nullptr) {
+        delete[] arr; // Deallocate the memory
+        arr = nullptr; // Set the pointer to nullptr
+    }
+}
+
 //problem4
-#include <algorithm>  // for max function
-using namespace std;
+int* reallocate(int* arr, int N, int n) {
+    // Allocate new memory for the resized array of size N-n
+    int* newArr = new int[N - n];
 
-double probability(int *A, int *B) {
-    // Find the maximum value between Ali's and Bek's rolls
-    int maxRoll = max(*A, *B);
-    
-    // Count how many possible outcomes for Dilya's roll will result in her win
-    int favorableOutcomes = 6 - maxRoll + 1;
-    
-    // If favorableOutcomes is negative, set it to 0 (can't have negative favorable outcomes)
-    if (favorableOutcomes < 0) {
-        favorableOutcomes = 0;
+    // Copy elements from arr[n] to arr[N-1] to newArr
+    for (int i = 0; i < N - n; ++i) {
+        newArr[i] = arr[i + n];
     }
-    
-    // The total number of outcomes for Dilya is 6 (since it's a six-sided die)
-    double totalOutcomes = 6.0;
-    
-    // Return the probability of Dilya winning
-    return favorableOutcomes / totalOutcomes;
+
+    // Return the pointer to the new array
+    return newArr;
 }
+//problem5
 
-int presses(int *x) {
-    // Convert x to string to extract digit and length
-    int n = *x;
-    int digit = n % 10;  // Last digit (since x is a "special" number, it's the repeated digit)
-    int length = 0;
-    
-    // Find the length of the number (count how many times the digit repeats)
-    int temp = n;
-    while (temp > 0) {
-        length++;
-        temp /= 10;
+int** transposed(int** arr, int n, int m) {
+    // Dynamically allocate memory for the transposed matrix
+    int** transposed = new int*[m]; // m rows in the transposed matrix
+    for (int i = 0; i < m; ++i) {
+        transposed[i] = new int[n]; // n columns in the transposed matrix
     }
     
-    int totalKeypresses = 0;
-
-    // Calculate keypresses for all digits from 1 to digit-1
-    for (int d = 1; d < digit; ++d) {
-        for (int len = 1; len <= 4; ++len) {
-            totalKeypresses += len;  // Each "d...d" requires len keypresses
+    // Perform the transposition: arr[i][j] -> transposed[j][i]
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            transposed[j][i] = arr[i][j];
         }
     }
-
-    // Calculate keypresses for the current digit
-    for (int len = 1; len < length; ++len) {
-        totalKeypresses += len;  // For numbers like 2, 22, 222, ... before 2222
-    }
-
-    // Finally add keypresses for the apartment x itself
-    totalKeypresses += length;  // For the apartment `x` itself
     
-    return totalKeypresses;
+    // Return the pointer to the transposed matrix
+    return transposed;
 }
