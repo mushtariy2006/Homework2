@@ -10,60 +10,43 @@ void delete11(std::vector<int> &v) {
 
 #endif // PROBLEMS_H
 //problem2
-int* allocateAndSet(int a, int b) {
-    
-    if (a > b) {
-        return nullptr; 
-    }
+void insertMany(vector<int>& v, int a, int b) {
+    // Insert the number 'b' into the middle 'a' times
+    for (int i = 0; i < a; ++i) {
+        // Calculate the middle position
+        int middle = (v.size() % 2 == 0) ? v.size() / 2 : (v.size() / 2) + 1;
 
-    
-    int size = b - a + 1;
-
-   
-    int* arr = new int[size];
-
-   
-    for (int i = 0; i < size; ++i) {
-        arr[i] = a + i;
-    }
-
-    return arr; 
-}
-
-void deallocate(int*& arr) {
-   
-    if (arr != nullptr) {
-        delete[] arr; 
-        arr = nullptr; 
+        // Insert the number 'b' at the middle position
+        v.insert(v.begin() + middle, b);
     }
 }
 
 //problem3
 int* allocateAndSet(int a, int b) {
-
+    // Check if a > b and return nullptr
     if (a > b) {
-        return nullptr; // 
+        return nullptr;
     }
 
-   
+    // Calculate the size of the array (from a to b inclusive)
     int size = b - a + 1;
 
-  
+    // Allocate memory for the array
     int* arr = new int[size];
 
-
+    // Assign values in the range [a, b] to the array
     for (int i = 0; i < size; ++i) {
         arr[i] = a + i;
     }
 
-    return arr; 
+    return arr;
 }
 
-void deallocate(int*& arr) {
-
+// Function to deallocate memory and set pointer to nullptr
+void deallocate(int* arr) {
     if (arr != nullptr) {
-        delete[] arr; 
-        arr = nullptr; 
+        delete[] arr;  // Free the dynamically allocated memory
+        arr = nullptr; // Set the pointer to nullptr
     }
 }
 
