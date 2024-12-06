@@ -2,48 +2,24 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    int m, n;
-    cin >> m >> n;
-
-    vector<vector<int>> matrix(m, vector<int>(n));
-
-    // Input the matrix elements
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            cin >> matrix[i][j];
-        }
+int findMax(int* array, int size) {
+    int maxNum = -1;
+    for (int i=0; i<size; i++) {
+        maxNum = max(maxNum, *(array+i));
     }
-
-    // Calculate row averages
-    double row_avg = 0;
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            row_avg += matrix[i][j];
-        }
-    }
-    row_avg /= (m * n);
-
-    // Check if all columns also have the same average as rows
-    bool is_average_matrix = true;
-    for (int j = 0; j < n; j++) {
-        double col_avg = 0;
-        for (int i = 0; i < m; i++) {
-            col_avg += matrix[i][j];
-        }
-        col_avg /= m;
-
-        if (col_avg != row_avg) {
-            is_average_matrix = false;
-            break;
-        }
-    }
-
-    if (is_average_matrix) {
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
-    }
-
-    return 0;
+    return maxNum;
 }
+
+int main() {
+    vector<int> v;
+    int n;
+    while (true) {
+        cin>>n;
+        v.push_back(n);
+        if (n==-1) break;
+    }
+    int array[v.size()];
+    for(int i=0;i<v.size();i++) {
+        array[i] = v[i];
+    }
+    cout << "Maximum value: " << findMax(array, v.size());
