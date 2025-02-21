@@ -1,43 +1,41 @@
-#include "Course.h"
-#include "iostream"
-#include "LMS.h"
+#include <iostream>
+#include <vector>
+#include "Vehicle.h"
+#include "LandVehicle.h"
+#include "Car.h"
+#include "SportsCar.h"
+#include "Truck.h"
+#include "AirVehicle.h"
+#include "Helicopter.h"
+#include "WaterVehicle.h"
+#include "Boat.h"
+#include "Submarine.h"
+
 using namespace std;
 
-
 int main() {
-  string nameLMS;
-  getline(cin,nameLMS);
-  LMS myLMS(nameLMS);
-  int number_students;
-  cin>>number_students;
-  //Add students
-  for(int i=0;i<number_students;i++){
-    int id;
-    string name;
-    cin>>id>>name;
-    Student s1(id, name);
-    myLMS.addStudent(s1);
-  }
-  // Add courses
-  int number_courses;
-  cin>>number_courses;
-  for(int i=0;i<number_courses;i++){
-    string name;
-    int credit, id;
-    cin>>id>>name>>credit;
-    Course c1(id, name, credit);
-    myLMS.addCourse(c1);
-  }
-  // Enroll students in courses
-  int n;
-  cin >> n;
-  for(int i=0;i<n;i++){
-    int student_id;
-    int course_id;
-    cin >> student_id >> course_id;
-    myLMS.addStudentToCourse(student_id, course_id);
-  }
-  // Print LMS details
-  myLMS.printDetails();
-  return 0;
+    vector<Vehicle*> vehicles;
+    vehicles.push_back(new LandVehicle("LandBrand", 2020, 4));
+    vehicles.push_back(new Car("Toyota", 2021, 4, 4));
+    vehicles.push_back(new SportsCar("Ferrari", 2023, 4, 2, 350));
+    vehicles.push_back(new Truck("Volvo", 2019, 6, 18.5));
+    vehicles.push_back(new AirVehicle("Boeing", 2018, 12000));
+    vehicles.push_back(new Helicopter("Apache", 2022, 5000, 4));
+    vehicles.push_back(new WaterVehicle("Yamaha", 2020, "Recreational"));
+    vehicles.push_back(new Boat("Sunseeker", 2021, "Luxury", 10.5));
+    vehicles.push_back(new Submarine("Seawolf", 2015, "Military", 800));
+
+    // Iterate through the vector and call getInfo() for each vehicle
+    for (int i = 0; i < vehicles.size(); i++) {
+        Vehicle* ptr = vehicles[i];
+        cout << ptr->getInfo() << endl;
+        cout << "---" << endl;
+    }
+
+    // Clean up allocated memory
+    for (int i = 0; i < vehicles.size(); i++) {
+        delete vehicles[i];
+    }
+
+    return 0;
 }
