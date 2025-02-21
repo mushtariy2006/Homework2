@@ -1,7 +1,3 @@
-//
-// Created by steelbut on 2/21/2025.
-//
-
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
@@ -18,4 +14,4 @@ public:
     virtual std::string getInfo() const = 0; // Pure virtual function
 };
 
-#endif // VEHICLE
+#endif // VEHICLE_H
