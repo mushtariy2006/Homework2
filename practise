@@ -380,3 +380,117 @@
 //
 //     }
 // cout<<"stopped";
+#include <iostream>
+using namespace std;
+#include <cmath>
+#include <string>
+#include <cctype>
+// void displayPattern(int n) {
+//     for (int i = n; i >= 1; i--) {
+//         for (int j = 1; j <= 2*i; j++) {
+//             cout << "*";
+//         }
+//        cout << endl;
+//     }
+// }
+//
+// int main() {
+//     int rows;
+//     cout << "Enter the number of rows: ";
+//     cin >> rows;
+//
+//     displayPattern(rows);
+// int getType(int n) {
+//     int t=0;
+//     while (n>0) {
+//         t++;
+//         t/=10;
+//     }
+//     return (t%2==0)?0:1;
+//
+// }
+//
+// int main() {
+//     int digit;
+//     cin>>digit;
+//     int type = getType(digit);
+//     if (type==0) {
+//         cout<<"even";
+//     }else{
+//         cout<<"odd";
+//     }
+// }
+// void temperatura(double t, double v) {
+//     double tw;
+//     tw=35.74+(0.6215*t)-(35.75*pow(v,0.16))+ (0.4275*t*pow(v,0.16));
+//     if (t>=-58 && t<=41 && v>=2) {
+//         cout<<"temperatura: "<<tw<<endl;
+//     }     else {
+//             cout<<"wrong paramentrs";
+//         }
+//         }
+// int main() {
+//   double temp;
+//    double wind;
+//     cin>>wind;
+//     cin>>temp;
+//     temperatura(temp,wind);
+//
+// }
+// int countDigitOccurrences(int num, int digit) {
+//     digit=0;
+//     while(num!=0) {
+//         digit++;
+//         num=num/10;
+//
+//     }
+//     return digit;
+//
+// }
+// int main() {
+//     int num,digit;
+//     cin>>num;
+//     digit = countDigitOccurrences(num,digit);
+//     cout<<digit;
+//     return 0;
+// }
+// void revChar(char& c) {
+//     if (c >= 'A' && c <= 'Z') {
+//
+//     }else if (c >= 'a' && c <= 'z') {
+//
+//
+//     }
+//     return;
+// }
+// int main() {
+//     char ch;
+//     cin>>ch;
+//     revChar(ch);
+// }
+//
+// void revChar (char& c){
+//     if (isupper(c)) {
+//         c = tolower(c);
+//         cout<<c;
+//     }else if (islower(c)) {
+//         c = toupper(c);
+//         cout<<c;
+//     }
+//
+// }
+// int main() {
+//     char c;
+//     cin>>c;
+//     revChar(c);
+// }
+// int main() {
+//     double time1, time2;
+//     cin >> time1 >> time2;
+//     double time3;
+//     time1*=60;
+//     time2*=60;
+//     time3=time2-time1;
+//     cout << time3 << endl;
+// }
+
