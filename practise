@@ -1,0 +1,382 @@
+//     string name, age;
+    //     cout<<"Enter your name: ";
+    //     cin>>name;
+    //     cout<<"Enter your age: ";
+    //     cin>>age;
+    //     cout<<"Your age is: "<<age<<endl;
+    //     cout<<"Your name is: "<<name<<endl;
+    // }
+    // for (int i=1; i<=5; i++) {
+    //     cout << i<<setw(5);
+    // }
+    // int a,b;
+    // cin>>a>>b;
+    // int t;
+    // t=a;
+    // a=b;
+    // b=t;
+    // // cout<<a<<" "<<b;
+    // int n;
+    // cin>>n;
+    // for (int i=1; i<=n; i++) {
+    //     cout<<i<<" "<<i*i<<endl;
+    // }
+    // int a,b,c,d,e,f;
+    // cin>>a>>b>>c>>d>>e>>f;
+    // int sum=a+b+c+d+e+f;
+    // cout<<sum;
+    // int n;
+    // cin>>n;
+    // int a=1.8*n;
+    // cout<<a<<endl;
+    // int a = 189;
+    // char b= 'B';
+    // float c= a/4;
+    // double d= b;
+    // float e= (a+b)/5;
+    // char f = (a/3) - 7;
+    // cout<<a<<endl<<b<<endl<<c<<endl<<d<<endl<<e<<f<<endl;
+    // int a,b;
+    // cin>>a>>b;
+    // int sum=a+b;
+    // int prod=a*b;
+    // cout<<sum<<endl;
+    // cout<<prod<<endl;
+    // int a,b;
+    // cin>>a>>b;
+    // int sum=a+b;
+    // cout<<"Sum:"<<" "<<"="<<sum;
+    // double d;
+    // cin >> d;
+    // double area = (3.14*d*d)/4;
+    // cout << area << endl;
+    // int a;
+    // cin>>a;
+    // int b=a/11;
+    // int c=a%11;
+    // cout<<b<<" "<<c<<endl;
+    // int x=17, y=1;
+    // y++;
+    //
+    // cout << x << y <<  endl;
+    // double z=(x+(++x))/((y++)*(y));
+    // cout << z << endl;
+    // int a,b;
+    // cin>>a>>b;
+    // if (a==b) {
+    //     cout<<1;
+    // }  else {
+    //         cout<<0;
+    //     }
+    // int a,a1,a2,a3,a4;
+    // cin>>a>>a1>>a2>>a3>>a4;
+    // if (a>=0 || a1 >= 0 || a2 >= 0 || a3 >= 0 || a4 >= 0) {
+    //     cout<<1;
+    // } else {
+    //     cout<<0;
+    // }
+    // int x;
+    // cin >> x;
+    // if (x > 0) {
+    //     cout<<"Positive"<<endl;
+    // } else{
+    //     cout<<"Negative"<<endl;
+    // }
+    // int x;
+    // cin >> x;
+    // if (x%2 == 0) {
+    //     cout<<"even"<<endl;
+    // } else {
+    //     cout<<"odd"<<endl;
+    // }
+    // int a,a1,a2;
+    // cin>>a>>a1>>a2;
+    // if (a>a1 && a>a2) {
+    //     cout<<a<<endl;
+    // }    else if (a1>a2 && a>a1) {
+    //     cout<<a1<<endl;
+    // } else {
+    //     cout<<a2<<endl;
+    // }
+    // int a,y;
+    // cin>>a>>y;
+    // if (a%y==0) {
+    //     cout<<"YES";
+    // } else {
+    //     cout<<"NO";
+    // }
+    // int a, b, c;
+    // cin >> a >> b >> c;
+    // double x1,x2;
+    // double d= b*b - 4*a*c;
+    // x1 = (-b + sqrt(d))/(2*a);
+    // x2 = (-b - sqrt(d))/(2*a);
+    // cout<<"x1= "<<x1<<endl;
+    // cout<<"x2= "<<x2<<endl;
+    // int a,a1,a2;
+    // cin>>a>>a1>>a2;
+    // if (a+a1+a2==180) {
+    //     cout<<"YES";
+    // } else{
+    //     cout<<"NO";
+    // }
+    // char a;
+    // cin>>a;
+    // if (a>='a' && a<='z') {
+    //     cout<<"lowercase"<<endl;
+    // }else if (a>='A' && a<='Z') {
+    //     cout<<"uppercase"<<endl;
+    // } else{
+    //     cout<<"it is not alphabet";
+    // }
+    // int x,y;
+    // cin>>x>>y;
+    // int d=sqrt(pow(x,2)+pow(y,2));
+    // if (d<=10) {
+    //     cout<<"YES"<<endl;
+    // }else{
+    //     cout<<"NO"<<endl;
+    // }
+    // double w,c,w1,c1;
+    // cin>>w>>c>>w1>>c1;
+    // double a1 = w/c;
+    // double a2 = w1/c1;
+    // if (a1>a2) {
+    //     cout<<"a1 is better"<<endl;
+    // }else if (a2>a1) {
+    //     cout<<"a2 is better"<<endl;
+    // }else{
+    //     cout<<"ther are equal"<<endl;
+    // }
+    // int a;
+    // cin>>a;
+    // int a1= a/100;
+    // int a2=a%10;
+    // if (a1==a2) {
+    //     cout<<"palindrome"<<endl;
+    // }else{
+    //     cout<<"not palindrome"<<endl;
+    // }
+    // int grade;
+    // cin>>grade;
+    // if (grade<0 && grade>100)
+    //     cout<<"Error";
+    // switch (grade/10) {
+    //     case 9:
+    //         case 10:
+    //     cout<<"A"; break;
+    //     case 8:
+    //         cout<<"B";break;
+    //     case 7:
+    //         cout<<"C";break;
+    //     case 6:
+    //         cout<<"D";break;
+    //     case 5:
+    //         cout<<"E";break;
+    //
+    //     default:
+    //         cout<<"Errors";
+    //
+    //
+    //
+    //
+    // }
+    // int n;
+    // cin >> n;
+    // switch (n<0) {
+    //     case 1:
+    //         cout<<"Positive";
+    //     break;
+    //     switch (n>0) {
+    //         case 1:
+    //             cout<<"Positive";
+    //         break;
+    //         default:
+    //             cout<<"zero";
+    //     }
+    //
+    //
+    //
+    // }
+    // char n;
+    // cin>>n;
+    // switch (n) {
+    //     case 'u':
+    //         cout<<"salom";
+    //     break;
+    //     case 'e':
+    //         cout<<"hello";
+    //     break;
+    //     case 'r':
+    //         cout<<"privet";
+    //     break;
+    //     case 'g':
+    //         cout<<"hola";
+    //     break;
+    //     default:
+    //         cout<<"error";
+    // }
+    // int w;
+    // cin >> w;
+    // if (w>0 && w<=1) {
+    //     cout<<"3500";
+    // } else if (w>1 && w<=3) {
+    //     cout<<"5500";
+    // } else if (w>3 && w<=10) {
+    //     cout<<"8500";
+    // }else if (w>10 && w<=20) {
+    //     cout<<"15000";
+    // }
+    // }
+    // int n;
+    // cin >> n;
+    // switch (n) {
+    //     case 1:
+    //         cout<<"one"<<endl;break;
+    //     case 2:
+    //         cout<<"two"<<endl;break;
+    //     case 3:
+    //         cout<<"three"<<endl;break;
+    //     case 4:
+    //         cout<<"four"<<endl;break;
+    //     case 5:
+    //         cout<<"five"<<endl;break;
+    //     case 6:
+    //         cout<<"six"<<endl;break;
+    //     case 7:
+    //         cout<<"seven"<<endl;break;
+    //     case 8:
+    //         cout<<"eight"<<endl;break;
+    //     case 9:
+    //         cout<<"nine"<<endl;break;
+    //     default:
+    //         cout<<"it is not digit";
+    // }
+    // int a,b;
+    // cin>>a>>b;
+    // cout<<a+(rand()%(b-a+1))<<endl;
+    // int sum=0;
+    // for (int i=1; i<=10; i++) {
+    //     cout<<i<<"\t";
+    //     sum=sum+i;
+    // }
+    // cout<<sum<<endl;
+    // for (int i=1; i<=100; i++) {
+    //     if (i%5==0) {
+    //         continue;
+    //
+    //     }cout << i << endl;
+    // }
+    // int n;
+    // cin >> n;
+    // for (int i=1; i<=n;i++) {
+    //     if (i%10!=0) {
+    //         continue;
+    //     }
+    //     cout<<i<<"\t";
+    // }
+    // int n;
+    // cin>>n;
+    // int sum=0;
+    // double x=0;
+    // double gpa=0;
+    // for(int i=0;i<=n;i++) {
+    //     cin>>n;
+    //     sum+=n;
+    //     for (int j=0;j<=n;j++) {
+    //         cin>>n;
+    //         x=i*j;
+    //         cout<<x;
+    //
+    //     }
+    // }
+    // int n;
+    // cin>>n;
+    // int sum=0;
+    // for (int i=1;i<=n;i++) {
+    //         sum=i*i;
+    //         cout<<i<<"*"<<i<<"="<<sum<<endl;
+    //     }4
+    // int n;
+    // int max=0;
+    // do {
+    //     cin>>n;
+    //     if(n>max)
+    //         max=n;
+    // }
+    // while (n!=0);
+    //
+    // cout<<max<<endl;
+    // int n;
+    // double avr=0;
+    // int sum=0;
+    //
+    // int p=0, ne=0;
+    // do {
+    //     cin>>n;
+    //     if (n>0) {
+    //         p++;
+    //     }else if (n<0) {
+    //         ne++;
+    //     }
+    //     sum+=n;
+    //     avr=sum/(p+ne);
+    //     cout<<"the positive"<<p;
+    //     cout<<"the negative"<<ne<<endl;
+    //     cout<<avr<<endl;
+    // }
+    //     while (n!=0);
+    // int n;
+    // cin >> n;
+    // for (int i = 0; i < n; i++) {
+    //     for (int j = 0; j <=i; j++) {
+    //         cout<<"*";
+    //
+    //     }cout << endl;
+    //
+    // }
+    // int n;
+    // cin >> n;
+    // for (int i = 1; i <=n; i++) {
+    //     for (int j = 2;  j<i; j++) {
+    //
+    //         cout<<i<<j<<endl;
+    //     }
+    // int n;
+    // cin>>n;
+    // double sum=0;
+    // for(int i=1;i<=n;i++){
+    //     sum+=pow(i,-1);
+    //
+    // }
+    // cout<<sum;
+    // int n;
+    // cin>>n;
+    // int sum=0;
+    //
+    // // while (n%10>10) {
+    // do {
+    //     sum+=n%10;
+    //     n/=10;
+    // }
+    // while (n>0);
+    // cout<<sum;
+    // while (n>10) {
+    //
+    // }
+    // do{
+    //     n%10;
+    //     sum+=n;
+    // }
+    // while(n%10!=0);
+    // cout<<sum;
+//     int n;
+//     cout<<"Enter the number of seconds";
+//     cin >> n;
+//     while (n>1) {
+//         n--;
+//         cout<<n<<"seconds remainnig"<<endl;
+//         this_thread::sleep_for(chrono::seconds(3));
+//
+//     }
+// cout<<"stopped";
